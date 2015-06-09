@@ -12,14 +12,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TodoPageObjects {
+public class TodosTest {
 
-    PageObjects pageObject;
+    TodoMVCPage pageObject = new TodoMVCPage();
 
-    public TodoPageObjects() {
-       pageObject = new PageObjects();
-    }
-
+//    public TodosTest() {
+//       pageObject = new TodoMVCPage();
+//    }
 
     @BeforeClass
     public static void openMvc() {
@@ -38,7 +37,7 @@ public class TodoPageObjects {
     }
 
     @Test
-    public void testAtAllFilter() {
+    public void testAtAllFilterTest() {
         //test preconditions
         pageObject.addTask("do1");
         pageObject.addTask("do2");
@@ -92,7 +91,7 @@ public class TodoPageObjects {
     }
 
     @Test
-    public void testAtActiveFilter() {
+    public void testAtActiveFilterTest() {
         //test preconditions
         pageObject.addTask("do1");
         pageObject.addTask("do2");
@@ -155,7 +154,7 @@ public class TodoPageObjects {
     }
 
     @Test
-    public void testAtCompletedFilter() {
+    public void testAtCompletedFilterTest() {
         //test preconditions
         pageObject.addTask("do1");
         pageObject.addTask("do2");

@@ -1,4 +1,4 @@
-package com.project.test.homework4;
+package com.project.test.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -7,55 +7,55 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class PageObjects {
+public class TodoMVC {
 
-    public ElementsCollection taskList = $$("#todo-list li");
-    public SelenideElement clearCompleted = $("#clear-completed");
-    public SelenideElement itemsLeft = $("#todo-count>strong");
+    public static ElementsCollection taskList = $$("#todo-list li");
+    public static SelenideElement clearCompleted = $("#clear-completed");
+    public static SelenideElement itemsLeft = $("#todo-count>strong");
 
-    public void addTask(String task) {
+    public static void addTask(String task) {
         $("#new-todo").setValue(task).pressEnter();
     }
 
-    public void filterAll() {
+    public static void filterAll() {
         $("[href='#/']").click();
     }
 
-    public void filterActive(){
+    public static void filterActive(){
         $("[href='#/active']").click();
     }
 
-    public void filterCompleted(){
+    public static void filterCompleted(){
         $("[href='#/completed']").click();
     }
 
-    public void toggle(String task) {
+    public static void toggle(String task) {
         taskList.find(text(task)).find(".toggle").click();
     }
 
-    public void deleteTask(String task) {
+    public static void deleteTask(String task) {
         taskList.findBy(text(task)).hover().find(".destroy").click();
     }
 
-    public void editTask(String oldTask, String newTask) {
+    public static void editTask(String oldTask, String newTask) {
         taskList.findBy(text(oldTask)).find("label").doubleClick();
         taskList.findBy(cssClass("editing")).find(".edit").setValue(newTask).pressEnter();
     }
 
-    public void clearCompleted(){
+    public static void clearCompleted(){
         clearCompleted.click();
         clearCompleted.should(disappear);
     }
 
-    public void toggleAll() {
+    public static void toggleAll() {
         $("#toggle-all").click();
     }
 
-    public void checkItemsLeftCounter(int number){
+    public static void checkItemsLeftCounter(int number){
         $("#todo-count>strong").shouldHave(exactText(Integer.toString(number)));
     }
 
-/*    public void checkCompletedCounter(int number) {
+    public static void checkCompletedCounter(int number) {
         $("#clear-completed").shouldHave(exactText(Integer.toString(number)));
         /*
         что если тут написать exactText вместо
@@ -64,3 +64,4 @@ public class PageObjects {
          */
     }
 
+}

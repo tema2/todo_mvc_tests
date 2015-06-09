@@ -11,11 +11,11 @@ import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
-import static com.project.test.TodoMVC.*;
+import static com.project.test.pages.TodoMVC.*;
 
 
 
-public class TodoSeparateFiltersTests {
+public class TodoSeparateFiltersTest {
 
     @BeforeClass
     public static void openMvc() {
@@ -34,7 +34,7 @@ public class TodoSeparateFiltersTests {
     }
 
     @Test
-    public void testAtAllFilter() {
+    public void testAtAllFilterTest() {
         //test preconditions
         addTask("do1");
         addTask("do2");
@@ -88,7 +88,7 @@ public class TodoSeparateFiltersTests {
     }
 
     @Test
-    public void testAtActiveFilter() {
+    public void testAtActiveFilterTest() {
         //test preconditions
         addTask("do1");
         addTask("do2");
@@ -151,7 +151,7 @@ public class TodoSeparateFiltersTests {
     }
 
     @Test
-    public void testAtCompletedFilter() {
+    public void testAtCompletedFilterTest() {
         //test preconditions
         addTask("do1");
         addTask("do2");
